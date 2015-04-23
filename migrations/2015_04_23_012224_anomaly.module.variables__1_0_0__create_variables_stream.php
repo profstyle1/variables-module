@@ -18,18 +18,7 @@ class AnomalyModuleVariables_1_0_0_CreateVariablesStream extends Migration
      * @var array
      */
     protected $stream = [
-        'slug'   => 'variables',
-        'locked' => true
-    ];
-
-    /**
-     * The stream assignments.
-     *
-     * @var array
-     */
-    protected $assignments = [
-        'key',
-        'value'
+        'slug' => 'variables'
     ];
 
 }
