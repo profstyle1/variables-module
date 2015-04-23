@@ -17,13 +17,6 @@ class AnomalyModuleVariables_1_0_0_CreateVariablesFields extends Migration
      *
      * @var array
      */
-    protected $fields = [
-        'key'   => [
-            'type' => 'anomaly.field_type.text'
-        ],
-        'value' => [
-            'type' => 'anomaly.field_type.textarea'
-        ]
-    ];
+    protected $fields = [];
 
 }
