@@ -1,7 +1,7 @@
 <?php namespace Anomaly\VariablesModule\Http\Controller\Admin;
 
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Anomaly\VariablesModule\Variable\Table\VariableTableBuilder;
+use Anomaly\VariablesModule\Variable\Table\VariableAssignmentTableBuilder;
 
 /**
  * Class VariablesController
@@ -15,12 +15,12 @@ class VariablesController extends AdminController
 {
 
     /**
-     * Return an index of existing variables.
+     * Return an index of variable assignments.
      *
-     * @param VariableTableBuilder $table
+     * @param VariableAssignmentTableBuilder $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(VariableTableBuilder $table)
+    public function index(VariableAssignmentTableBuilder $table)
     {
         return $table->render();
     }

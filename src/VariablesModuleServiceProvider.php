@@ -22,4 +22,23 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
         'admin/variables' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index'
     ];
 
+    /**
+     * The addon bindings.
+     *
+     * @var array
+     */
+    protected $bindings = [
+        'Anomaly\VariablesModule\Variable\VariableModel'                        => 'Anomaly\VariablesModule\Variable\VariableModel',
+        'Anomaly\Streams\Platform\Model\Variables\VariablesVariablesEntryModel' => 'Anomaly\VariablesModule\Variable\VariableModel'
+    ];
+
+    /**
+     * The singleton bindings.
+     *
+     * @var array
+     */
+    protected $singletons = [
+        'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository'
+    ];
+
 }

@@ -1,3 +1,3 @@
 # Variables Module
 
-Store variables and bits of content.
+Manage variables and bits of content.
