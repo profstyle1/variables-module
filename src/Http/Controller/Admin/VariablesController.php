@@ -1,8 +1,8 @@
 <?php namespace Anomaly\VariablesModule\Http\Controller\Admin;
 
+use Anomaly\Streams\Platform\Assignment\Table\AssignmentTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Anomaly\VariablesModule\Variable\Form\VariableFieldAssignmentFormBuilder;
-use Anomaly\VariablesModule\Variable\Table\VariableAssignmentTableBuilder;
+use Anomaly\VariablesModule\Variable\VariableModel;
 
 /**
  * Class VariablesController
@@ -18,22 +18,12 @@ class VariablesController extends AdminController
     /**
      * Return an index of variable assignments.
      *
-     * @param VariableAssignmentTableBuilder $table
+     * @param AssignmentTableBuilder $table
+     * @param VariableModel          $model
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(VariableAssignmentTableBuilder $table)
+    public function index(AssignmentTableBuilder $table, VariableModel $model)
     {
-        return $table->render();
-    }
-
-    /**
-     * Return the form for a new variable field assignment.
-     *
-     * @param VariableFieldAssignmentFormBuilder $form
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function create(VariableFieldAssignmentFormBuilder $form)
-    {
-        return $form->render();
+        return $table->setStream($model->getStream())->render();
     }
 }

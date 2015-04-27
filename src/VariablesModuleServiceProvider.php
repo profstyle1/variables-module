@@ -19,8 +19,9 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'admin/variables'        => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
-        'admin/variables/create' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@create'
+        'admin/variables'           => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
+        'admin/variables/create'    => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@create',
+        'admin/variables/edit/{id}' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit'
     ];
 
     /**
