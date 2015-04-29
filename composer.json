@@ -1,7 +1,7 @@
 {
     "name": "anomaly/variables-module",
     "type": "streams-addon",
-    "description": "Manage variables and bits of content.",
+    "description": "Manage variables and bits of content that can be used anywhere.",
     "version": "1.0.0",
     "license": "MIT",
     "keywords": [

@@ -1,12 +1,9 @@
 <?php namespace Anomaly\VariablesModule\Http\Controller\Admin;
 
-use Anomaly\Streams\Platform\Assignment\Form\AssignmentFormBuilder;
-use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
-use Anomaly\Streams\Platform\Field\Form\FieldFormBuilder;
-use Anomaly\Streams\Platform\Field\Table\FieldTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
+use Anomaly\VariablesModule\Variable\Field\Form\VariableFieldFormBuilder;
+use Anomaly\VariablesModule\Variable\Field\Table\VariableFieldTableBuilder;
 use Anomaly\VariablesModule\Variable\Form\VariableFormBuilder;
-use Anomaly\VariablesModule\Variable\VariableModel;
 
 /**
  * Class VariablesController
@@ -19,40 +16,49 @@ use Anomaly\VariablesModule\Variable\VariableModel;
 class VariablesController extends AdminController
 {
 
-    public function index(FieldTableBuilder $table, VariableModel $model, FieldRepositoryInterface $fields)
+    /**
+     * Return an index of existing variable fields.
+     *
+     * @param VariableFieldTableBuilder $table
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function index(VariableFieldTableBuilder $table)
     {
-        return $table
-            ->setStream($model->getStream())
-            ->setButtons(
-                [
-                    'edit',
-                    [
-                        'button' => 'blue',
-                        'text'   => 'Set Value',
-                        'href'   => 'admin/variables/set/{entry.slug}'
-                    ]
-                ]
-            )
-            ->render();
+        return $table->render();
     }
 
-    public function create(FieldFormBuilder $form, VariableModel $model)
+    /**
+     * Return the form for creating a new variable field.
+     *
+     * @param VariableFieldFormBuilder $form
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function create(VariableFieldFormBuilder $form)
     {
-        return $form->setStream($model->getStream())->render();
+        return $form->render();
     }
 
-    public function edit(FieldFormBuilder $form, VariableModel $model, $id)
+    /**
+     * Return the form for editing a variable field.
+     *
+     * @param VariableFieldFormBuilder $form
+     * @param                          $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function edit(VariableFieldFormBuilder $form, $id)
     {
-        return $form->setStream($model->getStream())->render($id);
+        return $form->render($id);
     }
 
-    public function assign(AssignmentFormBuilder $form, VariableModel $model, $id = null)
+    /**
+     * Return the form for setting a variable value.
+     *
+     * @param VariableFormBuilder $form
+     * @param                     $field
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function set(VariableFormBuilder $form, $field)
     {
-        return $form->setStream($model->getStream())->render($id);
-    }
-
-    public function set(VariableFormBuilder $form, VariableModel $model, $field)
-    {
-        return $form->setFields([$field])->render($model->firstOrNew([])->getId());
+        return $form->setFields([$field])->render();
     }
 }
