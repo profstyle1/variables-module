@@ -11,4 +11,12 @@
 interface VariableRepositoryInterface
 {
 
+    /**
+     * Get a variable value.
+     *
+     * @param      $key
+     * @param null $default
+     * @return mixed
+     */
+    public function get($key, $default = null);
 }

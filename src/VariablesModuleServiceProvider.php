@@ -45,4 +45,13 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
         'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository'
     ];
 
+    /**
+     * Plugins provided by the addon.
+     *
+     * @var array
+     */
+    protected $plugins = [
+        'Anomaly\VariablesModule\Variable\VariablePlugin'
+    ];
+
 }

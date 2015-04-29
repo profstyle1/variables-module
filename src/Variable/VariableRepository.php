@@ -1,6 +1,7 @@
 <?php namespace Anomaly\VariablesModule\Variable;
 
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
+use Robbo\Presenter\Decorator;
 
 /**
  * Class VariableRepository
@@ -24,9 +25,26 @@ class VariableRepository implements VariableRepositoryInterface
      * Create a new VariableRepository instance.
      *
      * @param VariableModel $model
+     * @param Decorator     $decorator
      */
-    public function __construct(VariableModel $model)
+    public function __construct(VariableModel $model, Decorator $decorator)
     {
-        $this->model = $model;
+        $this->model = $decorator->decorate($model->firstOrNew([]));
+    }
+
+    /**
+     * Get a variable value.
+     *
+     * @param      $key
+     * @param null $default
+     * @return mixed
+     */
+    public function get($key, $default = null)
+    {
+        if ($value = $this->model->{$key}) {
+            return $value;
+        }
+
+        return $default;
     }
 }

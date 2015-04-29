@@ -14,4 +14,11 @@ use Anomaly\VariablesModule\Variable\Contract\VariableInterface;
 class VariableModel extends VariablesVariablesEntryModel implements VariableInterface
 {
 
+    /**
+     * The cache minutes.
+     *
+     * @var int
+     */
+    protected $cacheMinutes = 99999;
+
 }
