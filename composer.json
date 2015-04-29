@@ -26,5 +26,11 @@
         "psr-4": {
             "Anomaly\\VariablesModule\\": "src/"
         }
-    }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev"
 }
