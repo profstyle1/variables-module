@@ -1,5 +1,6 @@
 <?php namespace Anomaly\VariablesModule\Http\Controller\Admin;
 
+use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeCollection;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 use Anomaly\VariablesModule\Variable\Field\Form\VariableFieldFormBuilder;
 use Anomaly\VariablesModule\Variable\Field\Table\VariableFieldTableBuilder;
@@ -31,10 +32,13 @@ class VariablesController extends AdminController
      * Return the form for creating a new variable field.
      *
      * @param VariableFieldFormBuilder $form
+     * @param FieldTypeCollection      $fieldTypes
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function create(VariableFieldFormBuilder $form)
+    public function create(VariableFieldFormBuilder $form, FieldTypeCollection $fieldTypes)
     {
+        $form->setFieldType($fieldTypes->get($_GET['field_type']));
+
         return $form->render();
     }
 

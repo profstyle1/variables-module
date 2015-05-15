@@ -23,7 +23,8 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
         'admin/variables/create'       => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@create',
         'admin/variables/edit/{id}'    => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
         'admin/variables/assign/{id?}' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@assign',
-        'admin/variables/set/{field}'  => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@set'
+        'admin/variables/set/{field}'  => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@set',
+        'admin/variables/choose'       => 'Anomaly\VariablesModule\Http\Controller\Admin\AjaxController@choose'
     ];
 
     /**

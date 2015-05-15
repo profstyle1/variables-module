@@ -28,7 +28,11 @@ class VariablesModule extends Module
     protected $sections = [
         'variables' => [
             'buttons' => [
-                'new_variable'
+                'new_variable' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/variables/choose'
+                ]
             ]
         ]
     ];
