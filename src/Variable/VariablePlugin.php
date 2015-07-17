@@ -39,7 +39,7 @@ class VariablePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('variable_get', [$this->repository, 'get'])
+            new \Twig_SimpleFunction('variables_get', [$this->repository, 'get'])
         ];
     }
 }

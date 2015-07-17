@@ -1,5 +1,6 @@
 <?php namespace Anomaly\VariablesModule\Variable;
 
+use Anomaly\Streams\Platform\Entry\EntryRepository;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 use Robbo\Presenter\Decorator;
 
@@ -11,7 +12,7 @@ use Robbo\Presenter\Decorator;
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\VariablesModule\Variable
  */
-class VariableRepository implements VariableRepositoryInterface
+class VariableRepository extends EntryRepository implements VariableRepositoryInterface
 {
 
     /**

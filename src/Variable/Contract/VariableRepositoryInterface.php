@@ -1,5 +1,7 @@
 <?php namespace Anomaly\VariablesModule\Variable\Contract;
 
+use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
+
 /**
  * Interface VariableRepositoryInterface
  *
@@ -8,7 +10,7 @@
  * @author        Ryan Thompson <ryan@anomaly.is>
  * @package       Anomaly\VariablesModule\Variable\Contract
  */
-interface VariableRepositoryInterface
+interface VariableRepositoryInterface extends EntryRepositoryInterface
 {
 
     /**

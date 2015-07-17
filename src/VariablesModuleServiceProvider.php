@@ -14,27 +14,25 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
 {
 
     /**
+     * Plugins provided by the addon.
+     *
+     * @var array
+     */
+    protected $plugins = [
+        'Anomaly\VariablesModule\Variable\VariablePlugin'
+    ];
+
+    /**
      * The addon routes.
      *
      * @var array
      */
     protected $routes = [
-        'admin/variables'              => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
-        'admin/variables/create'       => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@create',
-        'admin/variables/edit/{id}'    => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
-        'admin/variables/assign/{id?}' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@assign',
-        'admin/variables/set/{field}'  => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@set',
-        'admin/variables/choose'       => 'Anomaly\VariablesModule\Http\Controller\Admin\AjaxController@choose'
-    ];
-
-    /**
-     * The addon bindings.
-     *
-     * @var array
-     */
-    protected $bindings = [
-        'Anomaly\VariablesModule\Variable\VariableModel'                        => 'Anomaly\VariablesModule\Variable\VariableModel',
-        'Anomaly\Streams\Platform\Model\Variables\VariablesVariablesEntryModel' => 'Anomaly\VariablesModule\Variable\VariableModel'
+        'admin/variables'             => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
+        'admin/variables/create'      => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@create',
+        'admin/variables/edit/{id}'   => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
+        'admin/variables/set/{field}' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@set',
+        'admin/variables/choose'      => 'Anomaly\VariablesModule\Http\Controller\Admin\AjaxController@choose'
     ];
 
     /**
@@ -44,15 +42,6 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      */
     protected $singletons = [
         'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository'
-    ];
-
-    /**
-     * Plugins provided by the addon.
-     *
-     * @var array
-     */
-    protected $plugins = [
-        'Anomaly\VariablesModule\Variable\VariablePlugin'
     ];
 
 }
