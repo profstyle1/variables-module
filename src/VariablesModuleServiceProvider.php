@@ -29,10 +29,10 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      */
     protected $routes = [
         'admin/variables'             => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
+        'admin/variables/choose'      => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@choose',
         'admin/variables/create'      => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@create',
         'admin/variables/edit/{id}'   => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
-        'admin/variables/set/{field}' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@set',
-        'admin/variables/choose'      => 'Anomaly\VariablesModule\Http\Controller\Admin\AjaxController@choose'
+        'admin/variables/set/{field}' => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@set'
     ];
 
     /**

@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'name'        => 'Variables',
+    'title'       => 'Variables',
+    'name'        => 'Variables Module',
     'description' => 'Manage variables and bits of content that can be used anywhere.',
     'section'     => [
         'variables' => 'Variables'

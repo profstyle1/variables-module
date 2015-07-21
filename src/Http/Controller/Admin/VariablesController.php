@@ -29,6 +29,17 @@ class VariablesController extends AdminController
     }
 
     /**
+     * Return the modal for choosing a field type.
+     *
+     * @param FieldTypeCollection $fieldTypes
+     * @return \Illuminate\View\View
+     */
+    public function choose(FieldTypeCollection $fieldTypes)
+    {
+        return view('module::ajax/choose_field_type', ['field_types' => $fieldTypes->all()]);
+    }
+
+    /**
      * Return the form for creating a new variable field.
      *
      * @param VariableFieldFormBuilder $form
