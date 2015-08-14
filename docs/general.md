@@ -39,7 +39,7 @@ You can access plugin values using the `Variables Plugin` that's packaged with t
 
 	{{ variables_get('example_variable') }}
 
-You may also access presenter / output methods from the field type you chose:
+You may also access output methods from the field type you chose:
 
 	{{ variables_get('example_variable').values }}
 
@@ -49,6 +49,6 @@ The `VariableRepositioryInterface` can be resolved and used to access the variab
 
 	$variables->get('example_variable');
 
-As with plugin usage, the field type presenter is returned:
+As with plugin usage, the field type output methods are accessible:
 
 	$variables->get('example_variable')->values;
