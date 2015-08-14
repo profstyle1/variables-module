@@ -15,4 +15,16 @@ The Variables module provides a convenient area to store single, Streams powered
 <a name="managing-variables"></a>
 ## Managing Variables
 
-Variables can be easily managed by accessing the module through the `control panel`.
+Variables can be easily managed through the `control panel`. To get started navigate to the Variables module and select **New Variable** in the upper right.
+
+First, you need to pick the `Field Type` you would like to use for the variable.
+
+![](https://raw.githubusercontent.com/anomalylabs/variables-module/1.0/master/docs/img/modal.png)
+
+Next fill out the variable name, slug and field type configuration. The **slug** value will be used when accessing the variable later with the plugin or repository.
+
+![](https://raw.githubusercontent.com/anomalylabs/variables-module/1.0/master/docs/img/fields.png)
+
+Lastly, set the value of the variable by selecting **Set Value** next to the variable in the list of available variables.
+
+![](https://raw.githubusercontent.com/anomalylabs/variables-module/1.0/master/docs/img/table.png)
