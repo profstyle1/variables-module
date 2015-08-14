@@ -16,11 +16,11 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
 {
 
     /**
-     * The variable model.
+     * The variable presenter.
      *
-     * @var VariableModel
+     * @var VariablePresenter
      */
-    protected $model;
+    protected $presenter;
 
     /**
      * Create a new VariableRepository instance.
@@ -30,7 +30,7 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
      */
     public function __construct(VariableModel $model, Decorator $decorator)
     {
-        $this->model = $decorator->decorate($model->firstOrNew([]));
+        $this->presenter = $decorator->decorate($model->firstOrNew([]));
     }
 
     /**
@@ -42,7 +42,7 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
      */
     public function get($key, $default = null)
     {
-        if ($value = $this->model->{$key}) {
+        if ($value = $this->presenter->{$key}) {
             return $value;
         }
 
