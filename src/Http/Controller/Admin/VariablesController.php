@@ -1,10 +1,11 @@
 <?php namespace Anomaly\VariablesModule\Http\Controller\Admin;
 
-use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeCollection;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Anomaly\VariablesModule\Variable\Field\Form\VariableFieldFormBuilder;
+use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
+use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Anomaly\VariablesModule\Variable\Field\Table\VariableFieldTableBuilder;
 use Anomaly\VariablesModule\Variable\Form\VariableFormBuilder;
+use Anomaly\VariablesModule\Variable\Table\VariableTableBuilder;
 
 /**
  * Class VariablesController
@@ -23,57 +24,26 @@ class VariablesController extends AdminController
      * @param VariableFieldTableBuilder $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(VariableFieldTableBuilder $table)
+    public function index(VariableTableBuilder $table)
     {
         return $table->render();
     }
 
     /**
-     * Return the modal for choosing a field type.
+     * Return a form to edit the variables.
      *
-     * @param FieldTypeCollection $fieldTypes
-     * @return \Illuminate\View\View
-     */
-    public function choose(FieldTypeCollection $fieldTypes)
-    {
-        return view('module::ajax/choose_field_type', ['field_types' => $fieldTypes->all()]);
-    }
-
-    /**
-     * Return the form for creating a new variable field.
-     *
-     * @param VariableFieldFormBuilder $form
-     * @param FieldTypeCollection      $fieldTypes
+     * @param StreamRepositoryInterface $streams
+     * @param VariableFormBuilder       $form
+     * @param                           $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function create(VariableFieldFormBuilder $form, FieldTypeCollection $fieldTypes)
+    public function edit(StreamRepositoryInterface $streams, VariableFormBuilder $form, $id)
     {
-        $form->setFieldType($fieldTypes->get($_GET['field_type']));
+        /* @var StreamInterface $group */
+        $group = $streams->find($id);
 
-        return $form->render();
-    }
+        $entry = $group->getEntryModel()->firstOrNew([]);
 
-    /**
-     * Return the form for editing a variable field.
-     *
-     * @param VariableFieldFormBuilder $form
-     * @param                          $id
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function edit(VariableFieldFormBuilder $form, $id)
-    {
-        return $form->render($id);
-    }
-
-    /**
-     * Return the form for setting a variable value.
-     *
-     * @param VariableFormBuilder $form
-     * @param                     $field
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function set(VariableFormBuilder $form, $field)
-    {
-        return $form->setFields([$field])->render();
+        return $form->setModel($group->getEntryModelName())->render($entry);
     }
 }

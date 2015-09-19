@@ -9,7 +9,7 @@
     <ul class="nav nav-stacked">
         {% for field_type in field_types %}
             <li>
-                <a href="{{ url_to('admin/variables/create?field_type=' ~ field_type.namespace) }}">
+                <a href="{{ url_to('admin/variables/fields/create?field_type=' ~ field_type.namespace) }}">
                     <strong>{{ trans(field_type.getTitle()) }}</strong>
                     <br>
                     <small>{{ trans(field_type.getDescription()) }}</small>

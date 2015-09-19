@@ -28,10 +28,26 @@ class VariablesModule extends Module
     protected $sections = [
         'variables' => [
             'buttons' => [
-                'new_variable' => [
+
+            ]
+        ],
+        'groups'    => [
+            'buttons' => [
+                'new_group',
+                'add_field' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/variables/choose'
+                    'enabled'     => 'admin/variables/groups/fields/*',
+                    'href'        => 'admin/variables/groups/choose/{request.route.parameters.id}'
+                ]
+            ]
+        ],
+        'fields'    => [
+            'buttons' => [
+                'new_field' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/variables/fields/choose'
                 ]
             ]
         ]
