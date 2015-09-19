@@ -4,7 +4,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeCollection;
 use Anomaly\Streams\Platform\Field\Form\FieldFormBuilder;
 use Anomaly\Streams\Platform\Field\Table\FieldTableBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
-use Anomaly\VariablesModule\Variable\VariableModel;
 
 /**
  * Class FieldsController
@@ -23,9 +22,9 @@ class FieldsController extends AdminController
      * @param FieldTableBuilder $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(FieldTableBuilder $table, VariableModel $variables)
+    public function index(FieldTableBuilder $table)
     {
-        $table->setStream($variables->getStream());
+        $table->setNamespace('variables');
 
         return $table->render();
     }

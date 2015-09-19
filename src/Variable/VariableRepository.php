@@ -1,8 +1,10 @@
 <?php namespace Anomaly\VariablesModule\Variable;
 
+use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
+use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
+use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
-use Robbo\Presenter\Decorator;
 
 /**
  * Class VariableRepository
@@ -16,36 +18,47 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
 {
 
     /**
-     * The variable presenter.
+     * The variables collection.
      *
-     * @var VariablePresenter
+     * @var VariableCollection
      */
-    protected $presenter;
+    protected $variables;
 
     /**
      * Create a new VariableRepository instance.
      *
-     * @param VariableModel $model
-     * @param Decorator     $decorator
+     * @param VariableCollection        $variables
+     * @param StreamRepositoryInterface $streams
      */
-    public function __construct(VariableModel $model, Decorator $decorator)
+    public function __construct(VariableCollection $variables, StreamRepositoryInterface $streams)
     {
-        $this->presenter = $decorator->decorate($model->firstOrNew([]));
+        $this->variables = $variables->make($streams->findAllByNamespace('variables')->all());
     }
 
     /**
-     * Get a variable value.
+     * Return a variable field type presenter.
      *
-     * @param      $key
-     * @param null $default
-     * @return mixed
+     * @param $group
+     * @param $field
+     * @return FieldTypePresenter
      */
-    public function get($key, $default = null)
+    public function get($group, $field)
     {
-        if ($value = $this->presenter->{$key}) {
-            return $value;
+        if (!$group = $this->group($group)) {
+            return null;
         }
 
-        return $default;
+        return $group->{$field};
+    }
+
+    /**
+     * Return the variable group stream.
+     *
+     * @param $group
+     * @return null|StreamInterface
+     */
+    public function group($group)
+    {
+        return $this->variables->get($group);
     }
 }
