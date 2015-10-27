@@ -19,7 +19,7 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $plugins = [
-        'Anomaly\VariablesModule\VariablesModulePlugin'
+        'Anomaly\VariablesModule\Variable\Plugin\VariablePlugin'
     ];
 
     /**
