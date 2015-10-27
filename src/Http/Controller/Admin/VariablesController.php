@@ -1,6 +1,7 @@
 <?php namespace Anomaly\VariablesModule\Http\Controller\Admin;
 
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
+use Anomaly\Streams\Platform\Model\Variables\VariablesTestGroupEntryModel;
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Anomaly\VariablesModule\Variable\Field\Table\VariableFieldTableBuilder;
