@@ -1,6 +1,7 @@
 <?php namespace Anomaly\VariablesModule\Variable\Contract;
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
+use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryRepositoryInterface;
 
 /**
@@ -22,4 +23,13 @@ interface VariableRepositoryInterface extends EntryRepositoryInterface
      * @return FieldTypePresenter
      */
     public function get($group, $field);
+
+    /**
+     * Get a variable group.
+     *
+     * @param $group
+     * @param $field
+     * @return EntryInterface
+     */
+    public function group($group);
 }

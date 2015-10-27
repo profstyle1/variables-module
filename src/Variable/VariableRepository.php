@@ -1,8 +1,8 @@
 <?php namespace Anomaly\VariablesModule\Variable;
 
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
+use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
-use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 
@@ -36,7 +36,7 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
     }
 
     /**
-     * Return a variable field type presenter.
+     * Get a variable.
      *
      * @param $group
      * @param $field
@@ -52,10 +52,10 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
     }
 
     /**
-     * Return the variable group stream.
+     * Get a variable group.
      *
      * @param $group
-     * @return null|StreamInterface
+     * @return EntryInterface
      */
     public function group($group)
     {

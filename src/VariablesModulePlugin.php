@@ -52,7 +52,7 @@ class VariablesModulePlugin extends Plugin
             new \Twig_SimpleFunction(
                 'variables_get',
                 function ($group, $field) {
-                    return $this->decorator->decorate($this->variables->get($group, $field));
+                    return $this->decorator->decorate($this->variables->group($group))->{$field};
                 }
             )
         ];
