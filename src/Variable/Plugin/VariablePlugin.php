@@ -2,6 +2,7 @@
 
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
 use Anomaly\VariablesModule\Variable\Plugin\Command\GetVariable;
+use Anomaly\VariablesModule\Variable\Plugin\Command\GetVariableValue;
 
 /**
  * Class VariablePlugin
@@ -26,6 +27,12 @@ class VariablePlugin extends Plugin
                 'variable',
                 function ($group, $field) {
                     return $this->dispatch(new GetVariable($group, $field));
+                }
+            ),
+            new \Twig_SimpleFunction(
+                'variable_value',
+                function ($group, $field) {
+                    return $this->dispatch(new GetVariableValue($group, $field));
                 }
             )
         ];
