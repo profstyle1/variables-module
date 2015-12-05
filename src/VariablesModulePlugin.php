@@ -1,18 +1,17 @@
-<?php namespace Anomaly\VariablesModule\Variable\Plugin;
+<?php namespace Anomaly\VariablesModule;
 
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
-use Anomaly\VariablesModule\Variable\Plugin\Command\GetVariable;
-use Anomaly\VariablesModule\Variable\Plugin\Command\GetVariableValue;
+use Anomaly\VariablesModule\Variable\Command\GetVariableValue;
 
 /**
- * Class VariablePlugin
+ * Class VariablesModulePlugin
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\VariablesModule\Variable\Plugin
+ * @package       Anomaly\VariablesModule
  */
-class VariablePlugin extends Plugin
+class VariablesModulePlugin extends Plugin
 {
 
     /**
@@ -23,12 +22,6 @@ class VariablePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction(
-                'variable',
-                function ($group, $field) {
-                    return $this->dispatch(new GetVariable($group, $field));
-                }
-            ),
             new \Twig_SimpleFunction(
                 'variable_value',
                 function ($group, $field) {

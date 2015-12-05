@@ -1,18 +1,17 @@
-<?php namespace Anomaly\VariablesModule\Variable\Plugin\Command;
+<?php namespace Anomaly\VariablesModule\Variable\Command;
 
-use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 use Illuminate\Contracts\Bus\SelfHandling;
 
 /**
- * Class GetVariable
+ * Class GetVariableValue
  *
  * @link          http://anomaly.is/streams-platform
  * @author        AnomalyLabs, Inc. <hello@anomaly.is>
  * @author        Ryan Thompson <ryan@anomaly.is>
- * @package       Anomaly\VariablesModule\Variable\Plugin\Command
+ * @package       Anomaly\VariablesModule\Variable\Command
  */
-class GetVariable implements SelfHandling
+class GetVariableValue implements SelfHandling
 {
 
     /**
@@ -30,10 +29,10 @@ class GetVariable implements SelfHandling
     protected $field;
 
     /**
-     * Create a new GetVariable instance.
+     * Create a new GetVariableValue instance.
      *
-     * @param $group
-     * @param $field
+     * @param      $group
+     * @param      $field
      */
     public function __construct($group, $field)
     {
@@ -45,7 +44,7 @@ class GetVariable implements SelfHandling
      * Handle the command.
      *
      * @param VariableRepositoryInterface $variables
-     * @return FieldTypePresenter
+     * @return mixed
      */
     public function handle(VariableRepositoryInterface $variables)
     {
@@ -53,6 +52,6 @@ class GetVariable implements SelfHandling
             return null;
         }
 
-        return $group->getFieldTypePresenter($this->field);
+        return $group->getFieldValue($this->field);
     }
 }
