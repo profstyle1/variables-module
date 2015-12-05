@@ -48,6 +48,10 @@ class GetVariableValue implements SelfHandling
      */
     public function handle(VariableRepositoryInterface $variables)
     {
-        return $variables->group($this->group)->getFieldValue($this->field);
+        if (!$group = $variables->group($this->group)) {
+            return null;
+        }
+
+        return $group->getFieldValue($this->field);
     }
 }
