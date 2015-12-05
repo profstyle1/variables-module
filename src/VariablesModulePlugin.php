@@ -1,6 +1,7 @@
 <?php namespace Anomaly\VariablesModule;
 
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
+use Anomaly\VariablesModule\Variable\Command\GetValuePresenter;
 use Anomaly\VariablesModule\Variable\Command\GetVariableValue;
 
 /**
@@ -22,6 +23,12 @@ class VariablesModulePlugin extends Plugin
     public function getFunctions()
     {
         return [
+            new \Twig_SimpleFunction(
+                'variable',
+                function ($group, $field) {
+                    return $this->dispatch(new GetValuePresenter($group, $field));
+                }
+            ),
             new \Twig_SimpleFunction(
                 'variable_value',
                 function ($group, $field) {
