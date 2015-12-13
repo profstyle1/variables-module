@@ -52,6 +52,6 @@ class GetVariableValue implements SelfHandling
             return null;
         }
 
-        return $group->getFieldValue($this->field);
+        return $group->getAttribute($this->field);
     }
 }
