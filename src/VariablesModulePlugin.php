@@ -1,7 +1,9 @@
 <?php namespace Anomaly\VariablesModule;
 
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
+use Anomaly\Streams\Platform\Support\Decorator;
 use Anomaly\VariablesModule\Variable\Command\GetValuePresenter;
+use Anomaly\VariablesModule\Variable\Command\GetVariableGroup;
 use Anomaly\VariablesModule\Variable\Command\GetVariableValue;
 
 /**
@@ -34,7 +36,13 @@ class VariablesModulePlugin extends Plugin
                 function ($group, $field) {
                     return $this->dispatch(new GetVariableValue($group, $field));
                 }
-            )
+            ),
+            new \Twig_SimpleFunction(
+                'variable_group',
+                function ($group) {
+                    return (new Decorator())->decorate($this->dispatch(new GetVariableGroup($group)));
+                }
+            ),
         ];
     }
 }
