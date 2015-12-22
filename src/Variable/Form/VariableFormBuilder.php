@@ -13,4 +13,15 @@ use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 class VariableFormBuilder extends FormBuilder
 {
 
+    /**
+     * Get the contextual entry ID.
+     *
+     * @return int|null
+     */
+    public function getContextualId()
+    {
+        $stream = $this->getFormStream();
+
+        return $stream->getId();
+    }
 }
