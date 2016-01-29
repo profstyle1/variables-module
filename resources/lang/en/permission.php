@@ -5,7 +5,7 @@ return [
         'name'   => 'Variables',
         'option' => [
             'read'   => 'Can read variables?',
-            'edit'   => 'Can create and edit variables?',
+            'write'  => 'Can create and edit variables?',
             'delete' => 'Can delete variables?'
         ]
     ],
@@ -13,7 +13,7 @@ return [
         'name'   => 'Groups',
         'option' => [
             'read'   => 'Can read groups?',
-            'edit'   => 'Can create and edit groups?',
+            'write'  => 'Can create and edit groups?',
             'delete' => 'Can delete groups?'
         ]
     ],
