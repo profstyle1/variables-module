@@ -5,5 +5,13 @@ return [
         'read',
         'edit',
         'delete'
+    ],
+    'groups'    => [
+        'read',
+        'write',
+        'delete'
+    ],
+    'fields'    => [
+        'manage'
     ]
 ];
