@@ -75,7 +75,7 @@ class GroupsController extends AdminController
         $group = $streams->find($id);
 
         $breadcrumbs->put($group->getName(), 'admin/variables/groups/edit/' . $group->getId());
-        $breadcrumbs->put('module::breadcrumb.fields', 'admin/variables/groups/fields/' . $group->getId());
+        $breadcrumbs->put('streams::breadcrumb.assignments', 'admin/variables/groups/assignments/' . $group->getId());
 
         return $table
             ->setButtons(
@@ -135,7 +135,7 @@ class GroupsController extends AdminController
             ->setActions(
                 [
                     'save' => [
-                        'redirect' => 'admin/variables/groups/fields/' . $id
+                        'redirect' => 'admin/variables/groups/assignments/' . $id
                     ]
                 ]
             )
@@ -163,12 +163,12 @@ class GroupsController extends AdminController
         /* @var StreamInterface $group */
         $group = $streams->find($id);
 
-        $breadcrumbs->put('module::breadcrumb.fields', 'admin/pages/types/fields/' . $group->getId());
+        $breadcrumbs->put('streams::breadcrumb.assignments', 'admin/pages/types/assignments/' . $group->getId());
 
         return $form->setActions(
             [
                 'save' => [
-                    'redirect' => 'admin/variables/groups/fields/' . $id
+                    'redirect' => 'admin/variables/groups/assignments/' . $id
                 ]
             ]
         )->render($assignment);

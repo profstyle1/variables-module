@@ -34,10 +34,10 @@ class VariablesModule extends Module
         'groups'    => [
             'buttons' => [
                 'new_group',
-                'add_field' => [
+                'assign_fields' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'enabled'     => 'admin/variables/groups/fields/*',
+                    'enabled'     => 'admin/variables/groups/assignments/*',
                     'href'        => 'admin/variables/groups/choose/{request.route.parameters.id}'
                 ]
             ]

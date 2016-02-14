@@ -43,7 +43,7 @@ class GroupTableBuilder extends StreamTableBuilder
 
     protected $buttons = [
         'edit',
-        'fields'
+        'assignments'
     ];
 
     /**
