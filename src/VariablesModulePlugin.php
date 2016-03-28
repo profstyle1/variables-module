@@ -33,8 +33,8 @@ class VariablesModulePlugin extends Plugin
             ),
             new \Twig_SimpleFunction(
                 'variable_value',
-                function ($group, $field) {
-                    return $this->dispatch(new GetVariableValue($group, $field));
+                function ($group, $field, $default = null) {
+                    return $this->dispatch(new GetVariableValue($group, $field, $default));
                 }
             ),
             new \Twig_SimpleFunction(
