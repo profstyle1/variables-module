@@ -26,4 +26,14 @@ class GroupFormBuilder extends StreamFormBuilder
      * @var string
      */
     protected $namespace = 'variables';
+
+    /**
+     * The skipped fields.
+     *
+     * @var array
+     */
+    protected $skips = [
+        'trashable',
+        'sortable'
+    ];
 }
