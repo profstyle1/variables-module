@@ -29,15 +29,24 @@ class GetVariableValue implements SelfHandling
     protected $field;
 
     /**
+     * The default value.
+     *
+     * @var mixed
+     */
+    protected $default;
+
+    /**
      * Create a new GetVariableValue instance.
      *
      * @param      $group
      * @param      $field
+     * @param null $default
      */
-    public function __construct($group, $field)
+    public function __construct($group, $field, $default = null)
     {
-        $this->group = $group;
-        $this->field = $field;
+        $this->group   = $group;
+        $this->field   = $field;
+        $this->default = $default;
     }
 
     /**
@@ -49,9 +58,9 @@ class GetVariableValue implements SelfHandling
     public function handle(VariableRepositoryInterface $variables)
     {
         if (!$group = $variables->group($this->group)) {
-            return null;
+            return $this->default;
         }
 
-        return $group->getAttribute($this->field);
+        return $group->getAttribute($this->field) ?: $this->default;
     }
 }
