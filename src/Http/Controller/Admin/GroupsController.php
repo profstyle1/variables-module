@@ -132,13 +132,6 @@ class GroupsController extends AdminController
         $field = $fields->find($field);
 
         return $form
-            ->setActions(
-                [
-                    'save' => [
-                        'redirect' => 'admin/variables/groups/assignments/' . $id
-                    ]
-                ]
-            )
             ->setStream($group)
             ->setField($field)
             ->render();
