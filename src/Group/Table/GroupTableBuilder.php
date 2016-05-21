@@ -1,7 +1,6 @@
 <?php namespace Anomaly\VariablesModule\Group\Table;
 
 use Anomaly\Streams\Platform\Stream\Table\StreamTableBuilder;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class GroupTableBuilder
@@ -22,25 +21,10 @@ class GroupTableBuilder extends StreamTableBuilder
     protected $namespace = 'variables';
 
     /**
-     * The table columns.
+     * The table buttons.
      *
      * @var array
      */
-    protected $columns = [
-        [
-            'heading' => 'module::field.group.name',
-            'value'   => 'entry.name'
-        ],
-        [
-            'heading' => 'module::field.slug.name',
-            'value'   => 'entry.slug'
-        ],
-        [
-            'heading' => 'streams::field.description.name',
-            'value'   => 'entry.description'
-        ]
-    ];
-
     protected $buttons = [
         'edit',
         'assignments'
