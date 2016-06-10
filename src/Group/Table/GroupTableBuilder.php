@@ -29,13 +29,4 @@ class GroupTableBuilder extends StreamTableBuilder
         'edit',
         'assignments'
     ];
-
-    /**
-     * The table actions.
-     *
-     * @var array
-     */
-    protected $actions = [
-        'delete'
-    ];
 }

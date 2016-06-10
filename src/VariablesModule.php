@@ -32,13 +32,19 @@ class VariablesModule extends Module
             ]
         ],
         'groups'    => [
-            'buttons' => [
+            'buttons'  => [
                 'new_group',
-                'assign_fields' => [
-                    'data-toggle' => 'modal',
-                    'data-target' => '#modal',
-                    'enabled'     => 'admin/variables/groups/assignments/*',
-                    'href'        => 'admin/variables/groups/choose/{request.route.parameters.id}'
+            ],
+            'sections' => [
+                'assignments' => [
+                    'href'    => 'admin/variables/groups/assignments/{request.route.parameters.group}',
+                    'buttons' => [
+                        'assign_fields' => [
+                            'data-toggle' => 'modal',
+                            'data-target' => '#modal',
+                            'href'        => 'admin/variables/groups/assignments/{request.route.parameters.group}/choose'
+                        ]
+                    ]
                 ]
             ]
         ],
