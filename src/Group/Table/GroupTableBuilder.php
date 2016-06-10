@@ -27,6 +27,10 @@ class GroupTableBuilder extends StreamTableBuilder
      */
     protected $buttons = [
         'edit',
+        'edit' => [
+            'text' => 'module::button.manage',
+            'href' => 'admin/variables/edit/{entry.id}'
+        ],
         'assignments'
     ];
 }
