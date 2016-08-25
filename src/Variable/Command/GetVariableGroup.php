@@ -2,7 +2,7 @@
 
 use Anomaly\Streams\Platform\Entry\EntryModel;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class GetVariableGroup
@@ -10,9 +10,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Variable\Command
  */
-class GetVariableGroup implements SelfHandling
+class GetVariableGroup
 {
 
     /**
@@ -35,7 +34,7 @@ class GetVariableGroup implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param VariableRepositoryInterface $variables
+     * @param  VariableRepositoryInterface $variables
      * @return EntryModel
      */
     public function handle(VariableRepositoryInterface $variables)

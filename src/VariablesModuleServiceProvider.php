@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule
  */
 class VariablesModuleServiceProvider extends AddonServiceProvider
 {
@@ -19,7 +18,7 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $plugins = [
-        'Anomaly\VariablesModule\VariablesModulePlugin'
+        'Anomaly\VariablesModule\VariablesModulePlugin',
     ];
 
     /**
@@ -49,7 +48,7 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository'
+        'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository',
     ];
 
 }

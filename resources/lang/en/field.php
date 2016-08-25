@@ -2,15 +2,15 @@
 
 return [
     'group'       => [
-        'name' => 'Group'
+        'name' => 'Group',
     ],
     'name'        => [
-        'name' => 'Name'
+        'name' => 'Name',
     ],
     'slug'        => [
-        'name' => 'Slug'
+        'name' => 'Slug',
     ],
     'description' => [
-        'name' => 'Description'
-    ]
+        'name' => 'Description',
+    ],
 ];

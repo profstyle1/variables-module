@@ -3,7 +3,7 @@
 use Anomaly\Streams\Platform\Support\Decorator;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 use Anomaly\VariablesModule\Variable\VariablePresenter;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class GetValuePresenter
@@ -11,9 +11,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Variable\Command
  */
-class GetValuePresenter implements SelfHandling
+class GetValuePresenter
 {
 
     /**
@@ -33,8 +32,8 @@ class GetValuePresenter implements SelfHandling
     /**
      * Create a new GetValuePresenter instance.
      *
-     * @param      $group
-     * @param      $field
+     * @param   $group
+     * @param   $field
      */
     public function __construct($group, $field)
     {
@@ -45,7 +44,7 @@ class GetValuePresenter implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param VariableRepositoryInterface $variables
+     * @param  VariableRepositoryInterface $variables
      * @return VariablePresenter
      */
     public function handle(VariableRepositoryInterface $variables)

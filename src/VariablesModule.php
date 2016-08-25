@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Addon\Module\Module;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule
  */
 class VariablesModule extends Module
 {
@@ -29,7 +28,7 @@ class VariablesModule extends Module
         'variables' => [
             'buttons' => [
 
-            ]
+            ],
         ],
         'groups'    => [
             'buttons'  => [
@@ -42,21 +41,21 @@ class VariablesModule extends Module
                         'assign_fields' => [
                             'data-toggle' => 'modal',
                             'data-target' => '#modal',
-                            'href'        => 'admin/variables/groups/assignments/{request.route.parameters.group}/choose'
-                        ]
-                    ]
-                ]
-            ]
+                            'href'        => 'admin/variables/groups/assignments/{request.route.parameters.group}/choose',
+                        ],
+                    ],
+                ],
+            ],
         ],
         'fields'    => [
             'buttons' => [
                 'new_field' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/variables/fields/choose'
-                ]
-            ]
-        ]
+                    'href'        => 'admin/variables/fields/choose',
+                ],
+            ],
+        ],
     ];
 
 }

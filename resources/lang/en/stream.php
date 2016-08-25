@@ -2,6 +2,6 @@
 
 return [
     'variables' => [
-        'name' => 'Variables'
-    ]
+        'name' => 'Variables',
+    ],
 ];

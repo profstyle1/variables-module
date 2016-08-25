@@ -6,21 +6,21 @@ return [
         'option' => [
             'read'   => 'Can read variables?',
             'write'  => 'Can create and edit variables?',
-            'delete' => 'Can delete variables?'
-        ]
+            'delete' => 'Can delete variables?',
+        ],
     ],
     'groups'    => [
         'name'   => 'Groups',
         'option' => [
             'read'   => 'Can read groups?',
             'write'  => 'Can create and edit groups?',
-            'delete' => 'Can delete groups?'
-        ]
+            'delete' => 'Can delete groups?',
+        ],
     ],
     'fields'    => [
         'name'   => 'Fields',
         'option' => [
-            'manage' => 'Can manage custom fields.'
-        ]
+            'manage' => 'Can manage custom fields.',
+        ],
     ],
 ];

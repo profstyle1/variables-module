@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Variable\Table
  */
 class VariableTableBuilder extends StreamTableBuilder
 {
@@ -29,16 +28,16 @@ class VariableTableBuilder extends StreamTableBuilder
     protected $columns = [
         [
             'heading' => 'module::field.group.name',
-            'value'   => 'entry.name'
+            'value'   => 'entry.name',
         ],
         [
             'heading' => 'module::field.slug.name',
-            'value'   => 'entry.slug'
+            'value'   => 'entry.slug',
         ],
         [
             'heading' => 'streams::field.description.name',
-            'value'   => 'entry.description'
-        ]
+            'value'   => 'entry.description',
+        ],
     ];
 
     /**
@@ -48,7 +47,7 @@ class VariableTableBuilder extends StreamTableBuilder
      */
     protected $buttons = [
         'edit' => [
-            'text' => 'module::button.manage'
-        ]
+            'text' => 'module::button.manage',
+        ],
     ];
 }

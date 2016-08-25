@@ -10,7 +10,6 @@ use Anomaly\VariablesModule\Group\Table\GroupTableBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Http\Controller\Admin
  */
 class GroupsController extends AdminController
 {
@@ -18,7 +17,7 @@ class GroupsController extends AdminController
     /**
      * Return an index of existing entries.
      *
-     * @param GroupTableBuilder $table
+     * @param  GroupTableBuilder                          $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(GroupTableBuilder $table)
@@ -29,7 +28,7 @@ class GroupsController extends AdminController
     /**
      * Return a form for a new page type.
      *
-     * @param GroupFormBuilder $form
+     * @param  GroupFormBuilder                           $form
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(GroupFormBuilder $form)
@@ -40,8 +39,8 @@ class GroupsController extends AdminController
     /**
      * Return a form for editing an existing page type.
      *
-     * @param GroupFormBuilder    $form
-     * @param                     $id
+     * @param  GroupFormBuilder                           $form
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(GroupFormBuilder $form, $id)

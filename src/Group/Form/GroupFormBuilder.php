@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Stream\Form\StreamFormBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Group\Form
  */
 class GroupFormBuilder extends StreamFormBuilder
 {
@@ -34,6 +33,6 @@ class GroupFormBuilder extends StreamFormBuilder
      */
     protected $skips = [
         'trashable',
-        'sortable'
+        'sortable',
     ];
 }

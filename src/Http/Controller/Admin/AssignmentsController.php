@@ -13,7 +13,6 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Http\Controller\Admin
  */
 class AssignmentsController extends AdminController
 {
@@ -21,9 +20,9 @@ class AssignmentsController extends AdminController
     /**
      * Return an index of existing assignments.
      *
-     * @param AssignmentTableBuilder    $table
-     * @param StreamRepositoryInterface $streams
-     * @param                           $group
+     * @param  AssignmentTableBuilder                     $table
+     * @param  StreamRepositoryInterface                  $streams
+     * @param                                             $group
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(AssignmentTableBuilder $table, StreamRepositoryInterface $streams, $group)
@@ -37,9 +36,9 @@ class AssignmentsController extends AdminController
     /**
      * Return the modal for choosing a field to assign.
      *
-     * @param FieldRepositoryInterface  $fields
-     * @param StreamRepositoryInterface $streams
-     * @param                           $group
+     * @param  FieldRepositoryInterface              $fields
+     * @param  StreamRepositoryInterface             $streams
+     * @param                                        $group
      * @return \Illuminate\Contracts\View\View|mixed
      */
     public function choose(FieldRepositoryInterface $fields, StreamRepositoryInterface $streams, $group)
@@ -58,10 +57,10 @@ class AssignmentsController extends AdminController
     /**
      * Create a new assignment.
      *
-     * @param AssignmentFormBuilder     $builder
-     * @param StreamRepositoryInterface $streams
-     * @param FieldRepositoryInterface  $fields
-     * @param                           $group
+     * @param  AssignmentFormBuilder                      $builder
+     * @param  StreamRepositoryInterface                  $streams
+     * @param  FieldRepositoryInterface                   $fields
+     * @param                                             $group
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(
@@ -82,10 +81,10 @@ class AssignmentsController extends AdminController
     /**
      * Edit an existing assignment.
      *
-     * @param AssignmentFormBuilder     $builder
-     * @param StreamRepositoryInterface $streams
-     * @param                           $group
-     * @param                           $id
+     * @param  AssignmentFormBuilder                      $builder
+     * @param  StreamRepositoryInterface                  $streams
+     * @param                                             $group
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(AssignmentFormBuilder $builder, StreamRepositoryInterface $streams, $group, $id)

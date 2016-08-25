@@ -14,7 +14,6 @@ use Anomaly\VariablesModule\Variable\Table\VariableTableBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Http\Controller\Admin
  */
 class VariablesController extends AdminController
 {
@@ -22,7 +21,7 @@ class VariablesController extends AdminController
     /**
      * Return an index of existing variable fields.
      *
-     * @param VariableFieldTableBuilder $table
+     * @param  VariableFieldTableBuilder                  $table
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(VariableTableBuilder $table)
@@ -33,9 +32,9 @@ class VariablesController extends AdminController
     /**
      * Return a form to edit the variables.
      *
-     * @param StreamRepositoryInterface $streams
-     * @param VariableFormBuilder       $form
-     * @param                           $id
+     * @param  StreamRepositoryInterface                  $streams
+     * @param  VariableFormBuilder                        $form
+     * @param                                             $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(StreamRepositoryInterface $streams, VariableFormBuilder $form, $id)

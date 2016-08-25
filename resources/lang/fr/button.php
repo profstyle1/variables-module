@@ -2,5 +2,5 @@
 
 return [
     'set_value'    => 'Modifier',
-    'new_variable' => 'Nouvelle variable'
+    'new_variable' => 'Nouvelle variable',
 ];

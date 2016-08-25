@@ -4,14 +4,14 @@ return [
     'variables' => [
         'read',
         'edit',
-        'delete'
+        'delete',
     ],
     'groups'    => [
         'read',
         'write',
-        'delete'
+        'delete',
     ],
     'fields'    => [
-        'manage'
-    ]
+        'manage',
+    ],
 ];

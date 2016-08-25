@@ -3,23 +3,23 @@
 return [
     'variables' => [
         'name' => 'Változók',
-    'option' => [
+    'option'   => [
         'read' => 'Hozzáférhet a változókhoz?',
-    'write' => 'Létrehozhat és szerkeszthet változókat?',
-    'delete' => 'Törölhet változókat?',
+    'write'    => 'Létrehozhat és szerkeszthet változókat?',
+    'delete'   => 'Törölhet változókat?',
     ],
     ],
     'groups' => [
         'name' => 'Csoportok',
-    'option' => [
+    'option'   => [
         'read' => 'Hozzáférhet a csoportokhoz?',
-    'write' => 'Létrehozhat és szerkeszthet csoportokat?',
-    'delete' => 'Törölhet csoportokat?',
+    'write'    => 'Létrehozhat és szerkeszthet csoportokat?',
+    'delete'   => 'Törölhet csoportokat?',
     ],
     ],
     'fields' => [
         'name' => 'Mezők',
-    'option' => [
+    'option'   => [
         'manage' => 'Kezelhet egyedi mezőket.',
     ],
     ],

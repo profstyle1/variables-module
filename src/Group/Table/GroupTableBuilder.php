@@ -8,7 +8,6 @@ use Anomaly\Streams\Platform\Stream\Table\StreamTableBuilder;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Group\Table
  */
 class GroupTableBuilder extends StreamTableBuilder
 {
@@ -29,8 +28,8 @@ class GroupTableBuilder extends StreamTableBuilder
         'edit',
         'edit' => [
             'text' => 'module::button.manage',
-            'href' => 'admin/variables/edit/{entry.id}'
+            'href' => 'admin/variables/edit/{entry.id}',
         ],
-        'assignments'
+        'assignments',
     ];
 }

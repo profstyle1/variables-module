@@ -1,7 +1,7 @@
 <?php namespace Anomaly\VariablesModule\Variable\Command;
 
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
-use Illuminate\Contracts\Bus\SelfHandling;
+
 
 /**
  * Class GetVariableValue
@@ -9,9 +9,8 @@ use Illuminate\Contracts\Bus\SelfHandling;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Variable\Command
  */
-class GetVariableValue implements SelfHandling
+class GetVariableValue
 {
 
     /**
@@ -52,7 +51,7 @@ class GetVariableValue implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param VariableRepositoryInterface $variables
+     * @param  VariableRepositoryInterface $variables
      * @return mixed
      */
     public function handle(VariableRepositoryInterface $variables)

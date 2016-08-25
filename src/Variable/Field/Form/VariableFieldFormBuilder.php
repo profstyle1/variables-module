@@ -10,7 +10,6 @@ use Anomaly\VariablesModule\Variable\VariableModel;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Variable\Field\Form
  */
 class VariableFieldFormBuilder extends FieldFormBuilder
 {
@@ -21,7 +20,7 @@ class VariableFieldFormBuilder extends FieldFormBuilder
      * @var array
      */
     protected $options = [
-        'auto_assign' => true
+        'auto_assign' => true,
     ];
 
     /**

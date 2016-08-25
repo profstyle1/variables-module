@@ -12,7 +12,6 @@ use Anomaly\VariablesModule\Variable\Command\GetVariableValue;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule
  */
 class VariablesModulePlugin extends Plugin
 {

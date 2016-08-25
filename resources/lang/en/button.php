@@ -5,5 +5,5 @@ return [
     'new_group'    => 'New Group',
     'add_field'    => 'Add Field',
     'new_field'    => 'New Field',
-    'new_variable' => 'New Variable'
+    'new_variable' => 'New Variable',
 ];

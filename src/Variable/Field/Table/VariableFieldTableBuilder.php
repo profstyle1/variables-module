@@ -10,7 +10,6 @@ use Anomaly\VariablesModule\Variable\VariableModel;
  * @link          http://pyrocms.com/
  * @author        PyroCMS, Inc. <support@pyrocms.com>
  * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\VariablesModule\Variable\Field\Table
  */
 class VariableFieldTableBuilder extends FieldTableBuilder
 {
@@ -25,8 +24,8 @@ class VariableFieldTableBuilder extends FieldTableBuilder
         [
             'button' => 'blue',
             'text'   => 'module::button.set_value',
-            'href'   => 'admin/variables/set/{entry.slug}'
-        ]
+            'href'   => 'admin/variables/set/{entry.slug}',
+        ],
     ];
 
     /**
