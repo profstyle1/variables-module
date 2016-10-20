@@ -1,7 +1,6 @@
 <?php namespace Anomaly\VariablesModule\Variable\Table;
 
 use Anomaly\Streams\Platform\Stream\Table\StreamTableBuilder;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class VariableTableBuilder
@@ -50,4 +49,11 @@ class VariableTableBuilder extends StreamTableBuilder
             'text' => 'module::button.manage',
         ],
     ];
+
+    /**
+     * The table actions.
+     *
+     * @var array
+     */
+    protected $actions = [];
 }
