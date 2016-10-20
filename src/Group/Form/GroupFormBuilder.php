@@ -32,6 +32,7 @@ class GroupFormBuilder extends StreamFormBuilder
      * @var array
      */
     protected $skips = [
+        'title_column',
         'trashable',
         'sortable',
     ];
