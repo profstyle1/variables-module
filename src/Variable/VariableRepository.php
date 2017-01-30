@@ -4,6 +4,7 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
+use Anomaly\Streams\Platform\Support\Decorator;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 
 /**
@@ -39,7 +40,7 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
      *
      * @param $group
      * @param $field
-     * @return FieldTypePresenter
+     * @return mixed
      */
     public function get($group, $field)
     {
@@ -51,10 +52,26 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
     }
 
     /**
+     * Get a variable presenter.
+     *
+     * @param $group
+     * @param $field
+     * @return FieldTypePresenter|null
+     */
+    public function presenter($group, $field)
+    {
+        if (!$group = $this->group($group)) {
+            return null;
+        }
+
+        return (new Decorator())->decorate($group)->{$field};
+    }
+
+    /**
      * Get a variable group.
      *
      * @param $group
-     * @return EntryInterface
+     * @return EntryInterface|null
      */
     public function group($group)
     {

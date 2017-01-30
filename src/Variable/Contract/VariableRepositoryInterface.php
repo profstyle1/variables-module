@@ -19,16 +19,25 @@ interface VariableRepositoryInterface extends EntryRepositoryInterface
      *
      * @param $group
      * @param $field
-     * @return FieldTypePresenter
+     * @return mixed
      */
     public function get($group, $field);
+
+    /**
+     * Get a variable presenter.
+     *
+     * @param $group
+     * @param $field
+     * @return FieldTypePresenter|null
+     */
+    public function presenter($group, $field);
 
     /**
      * Get a variable group.
      *
      * @param $group
      * @param $field
-     * @return EntryInterface
+     * @return EntryInterface|null
      */
     public function group($group);
 }
