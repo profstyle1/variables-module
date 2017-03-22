@@ -36,6 +36,7 @@ class VariablesModule extends Module
             ],
             'sections' => [
                 'assignments' => [
+                    'hidden'  => true,
                     'href'    => 'admin/variables/groups/assignments/{request.route.parameters.group}',
                     'buttons' => [
                         'assign_fields' => [
