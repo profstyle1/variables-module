@@ -1,6 +1,8 @@
 <?php namespace Anomaly\VariablesModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Field\FieldRouter;
+use Anomaly\VariablesModule\Http\Controller\Admin\FieldsController;
 
 /**
  * Class VariablesModuleServiceProvider
@@ -36,10 +38,6 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
         'admin/variables/groups/assignments/{group}/choose'    => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@choose',
         'admin/variables/groups/assignments/{group}/create'    => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@create',
         'admin/variables/groups/assignments/{group}/edit/{id}' => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@edit',
-        'admin/variables/fields'                               => 'Anomaly\VariablesModule\Http\Controller\Admin\FieldsController@index',
-        'admin/variables/fields/choose'                        => 'Anomaly\VariablesModule\Http\Controller\Admin\FieldsController@choose',
-        'admin/variables/fields/create'                        => 'Anomaly\VariablesModule\Http\Controller\Admin\FieldsController@create',
-        'admin/variables/fields/edit/{id}'                     => 'Anomaly\VariablesModule\Http\Controller\Admin\FieldsController@edit',
     ];
 
     /**
@@ -51,4 +49,13 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
         'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository',
     ];
 
+    /**
+     * Register the addon.
+     *
+     * @param FieldRouter $fields
+     */
+    public function register(FieldRouter $fields)
+    {
+        $fields->route($this->addon, FieldsController::class);
+    }
 }
