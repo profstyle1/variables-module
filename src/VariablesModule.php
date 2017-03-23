@@ -37,12 +37,12 @@ class VariablesModule extends Module
             'sections' => [
                 'assignments' => [
                     'hidden'  => true,
-                    'href'    => 'admin/variables/groups/assignments/{request.route.parameters.group}',
+                    'href'    => 'admin/variables/groups/assignments/{request.route.parameters.stream}',
                     'buttons' => [
                         'assign_fields' => [
                             'data-toggle' => 'modal',
                             'data-target' => '#modal',
-                            'href'        => 'admin/variables/groups/assignments/{request.route.parameters.group}/choose',
+                            'href'        => 'admin/variables/groups/assignments/{request.route.parameters.stream}/choose',
                         ],
                     ],
                 ],

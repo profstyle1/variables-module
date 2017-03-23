@@ -1,8 +1,12 @@
 <?php namespace Anomaly\VariablesModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\Streams\Platform\Assignment\AssignmentRouter;
 use Anomaly\Streams\Platform\Field\FieldRouter;
+use Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController;
 use Anomaly\VariablesModule\Http\Controller\Admin\FieldsController;
+use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
+use Anomaly\VariablesModule\Variable\VariableRepository;
 
 /**
  * Class VariablesModuleServiceProvider
@@ -20,7 +24,7 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $plugins = [
-        'Anomaly\VariablesModule\VariablesModulePlugin',
+        VariablesModulePlugin::class,
     ];
 
     /**
@@ -29,15 +33,11 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'admin/variables'                                      => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
-        'admin/variables/edit/{id}'                            => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
-        'admin/variables/groups'                               => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@index',
-        'admin/variables/groups/create'                        => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@create',
-        'admin/variables/groups/edit/{id}'                     => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@edit',
-        'admin/variables/groups/assignments/{group}'           => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@index',
-        'admin/variables/groups/assignments/{group}/choose'    => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@choose',
-        'admin/variables/groups/assignments/{group}/create'    => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@create',
-        'admin/variables/groups/assignments/{group}/edit/{id}' => 'Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController@edit',
+        'admin/variables'                  => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
+        'admin/variables/edit/{id}'        => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
+        'admin/variables/groups'           => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@index',
+        'admin/variables/groups/create'    => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@create',
+        'admin/variables/groups/edit/{id}' => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@edit',
     ];
 
     /**
@@ -46,16 +46,19 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\VariablesModule\Variable\VariableRepository',
+        VariableRepositoryInterface::class => VariableRepository::class,
     ];
 
     /**
-     * Register the addon.
+     * Map additional routes.
      *
-     * @param FieldRouter $fields
+     * @param FieldRouter      $fields
+     * @param AssignmentRouter $assignments
      */
-    public function register(FieldRouter $fields)
+    public function map(FieldRouter $fields, AssignmentRouter $assignments)
     {
         $fields->route($this->addon, FieldsController::class);
+
+        $assignments->route($this->addon, AssignmentsController::class, 'admin/variables/groups');
     }
 }
