@@ -50,7 +50,7 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * Map additional routes.
+     * Map the addon.
      *
      * @param FieldRouter      $fields
      * @param AssignmentRouter $assignments
@@ -58,7 +58,6 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
     public function map(FieldRouter $fields, AssignmentRouter $assignments)
     {
         $fields->route($this->addon, FieldsController::class);
-
         $assignments->route($this->addon, AssignmentsController::class, 'admin/variables/groups');
     }
 }
