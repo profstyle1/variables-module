@@ -3,8 +3,10 @@
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
 use Anomaly\Streams\Platform\Assignment\AssignmentRouter;
 use Anomaly\Streams\Platform\Field\FieldRouter;
+use Anomaly\Streams\Platform\Version\VersionRouter;
 use Anomaly\VariablesModule\Http\Controller\Admin\AssignmentsController;
 use Anomaly\VariablesModule\Http\Controller\Admin\FieldsController;
+use Anomaly\VariablesModule\Http\Controller\Admin\VersionsController;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 use Anomaly\VariablesModule\Variable\VariableRepository;
 
@@ -52,12 +54,14 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
     /**
      * Map the addon.
      *
-     * @param FieldRouter      $fields
+     * @param FieldRouter $fields
+     * @param VersionRouter $versions
      * @param AssignmentRouter $assignments
      */
-    public function map(FieldRouter $fields, AssignmentRouter $assignments)
+    public function map(FieldRouter $fields, VersionRouter $versions, AssignmentRouter $assignments)
     {
         $fields->route($this->addon, FieldsController::class);
+        $versions->route($this->addon, VersionsController::class);
         $assignments->route($this->addon, AssignmentsController::class, 'admin/variables/groups');
     }
 }

@@ -13,6 +13,18 @@ class VariableFormBuilder extends FormBuilder
 {
 
     /**
+     * The form buttons.
+     *
+     * @var array
+     */
+    protected $buttons = [
+        'versions' => [
+            'href' => 'admin/variables/versions/{entry.id}?group={request.route.parameters.id}',
+        ],
+        'cancel',
+    ];
+
+    /**
      * Get the contextual entry ID.
      *
      * @return int|null
