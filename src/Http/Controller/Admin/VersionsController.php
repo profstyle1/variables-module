@@ -71,18 +71,6 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
          */
         $table->setButtons(
             [
-                'changes' => [
-                    'disabled' => true,
-                    'type'     => 'info',
-                    'icon'     => 'code-fork',
-                    'href'     => $section->getHref('versions/changes/{entry.version}'),
-                    'text'     => function (VersionInterface $entry) {
-                        return ($count = count($entry->getData())) . ' ' . trans_choice(
-                                'streams::version.changes',
-                                $count
-                            );
-                    },
-                ],
                 'load'    => [
                     'href'     => $section->getHref(
                         'edit/{request.input.group}?version={entry.version}&versionable={entry.versionable_type}'
