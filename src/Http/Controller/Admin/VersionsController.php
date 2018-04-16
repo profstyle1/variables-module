@@ -39,7 +39,7 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
      * Return a list of versions for the variable group.
      *
      * @param VersionTableBuilder $table
-     * @param $id
+     * @param                     $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(VersionTableBuilder $table, $id)
@@ -72,10 +72,11 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
         $table->setButtons(
             [
                 'changes' => [
-                    'type' => 'info',
-                    'icon' => 'code-fork',
-                    'href' => $section->getHref('versions/changes/{entry.version}'),
-                    'text' => function (VersionInterface $entry) {
+                    'disabled' => true,
+                    'type'     => 'info',
+                    'icon'     => 'code-fork',
+                    'href'     => $section->getHref('versions/changes/{entry.version}'),
+                    'text'     => function (VersionInterface $entry) {
                         return ($count = count($entry->getData())) . ' ' . trans_choice(
                                 'streams::version.changes',
                                 $count
