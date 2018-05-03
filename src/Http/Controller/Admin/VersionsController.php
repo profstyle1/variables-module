@@ -42,16 +42,15 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
      * @param                     $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(VersionTableBuilder $table, $id)
+    public function index(VersionTableBuilder $table)
     {
 
         /**
          * Mimic the parent controllers method.
          */
         $table
-            ->setPrefix($this->getPrefix())
             ->setType($this->getModel())
-            ->setId($id);
+            ->setId($this->request->route('id'));
 
         $versionable = $table->getVersionableInstance();
 
