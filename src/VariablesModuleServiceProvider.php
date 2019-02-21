@@ -30,19 +30,6 @@ class VariablesModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * The addon routes.
-     *
-     * @var array
-     */
-    protected $routes = [
-        'admin/variables'                  => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@index',
-        'admin/variables/edit/{id}'        => 'Anomaly\VariablesModule\Http\Controller\Admin\VariablesController@edit',
-        'admin/variables/groups'           => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@index',
-        'admin/variables/groups/create'    => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@create',
-        'admin/variables/groups/edit/{id}' => 'Anomaly\VariablesModule\Http\Controller\Admin\GroupsController@edit',
-    ];
-
-    /**
      * The singleton bindings.
      *
      * @var array
