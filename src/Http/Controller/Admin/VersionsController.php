@@ -3,7 +3,6 @@
 use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\ControlPanel\ControlPanelBuilder;
-use Anomaly\Streams\Platform\Version\Contract\VersionInterface;
 use Anomaly\Streams\Platform\Version\Table\VersionTableBuilder;
 
 /**
@@ -52,12 +51,6 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
             ->setType($this->getModel())
             ->setId($this->request->route('id'));
 
-        $versionable = $table->getVersionableInstance();
-
-        if ($current = $versionable->getCurrentVersion()) {
-            $table->setCurrent($current);
-        }
-
         /* @var ControlPanelBuilder $controlPanel */
         $controlPanel = $this->container->make(ControlPanelBuilder::class);
 
@@ -70,18 +63,10 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
          */
         $table->setButtons(
             [
-                'load'    => [
-                    'href'     => $section->getHref(
+                'load' => [
+                    'href' => $section->getHref(
                         'edit/{request.input.group}?version={entry.version}&versionable={entry.versionable_type}'
                     ),
-                    'disabled' => function (VersionInterface $entry) use ($current) {
-
-                        if ($current->getVersion() !== $entry->getVersion()) {
-                            return false;
-                        }
-
-                        return true;
-                    },
                 ],
             ]
         );
