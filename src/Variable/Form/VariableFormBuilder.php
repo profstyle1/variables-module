@@ -2,28 +2,25 @@
 
 use Anomaly\Streams\Platform\Entry\EntryModel;
 use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
-use Illuminate\Contracts\Container\Container;
 
 /**
  * Class VariableFormBuilder
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class VariableFormBuilder extends FormBuilder
 {
 
     /**
      * Fired just before building.
-     *
-     * @param Container $container
      */
-    public function onReady(Container $container)
+    public function onReady()
     {
 
         /* @var EntryModel $model */
-        $model = $container->make($this->getModel());
+        $model = app($this->getModel());
 
         if ($model->isVersionable()) {
             $this->setButtons(
