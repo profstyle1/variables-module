@@ -1,6 +1,9 @@
 <?php namespace Anomaly\VariablesModule;
 
 use Anomaly\Streams\Platform\Addon\Module\Module;
+use Anomaly\Streams\Platform\Assignment\Contract\AssignmentRepositoryInterface;
+use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
+use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
 
 /**
  * Class VariablesModule
@@ -59,4 +62,22 @@ class VariablesModule extends Module
         ],
     ];
 
+    /**
+     * Fired after uninstalled.
+     *
+     * @param AssignmentRepositoryInterface $assignments
+     * @param StreamRepositoryInterface $streams
+     * @param FieldRepositoryInterface $fields
+     */
+    public function onUninstalled(
+        AssignmentRepositoryInterface $assignments,
+        StreamRepositoryInterface $streams,
+        FieldRepositoryInterface $fields
+    ) {
+        $streams->destroy('variables');
+
+        $assignments->cleanup();
+        $streams->cleanup();
+        $fields->cleanup();
+    }
 }

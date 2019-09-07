@@ -6,9 +6,9 @@ use Anomaly\Streams\Platform\Stream\Contract\StreamInterface;
 /**
  * Class VariableCollection
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class VariableCollection extends EntryCollection
 {
@@ -17,6 +17,7 @@ class VariableCollection extends EntryCollection
      * Create a new VariableCollection instance.
      *
      * @param array $items
+     * @todo this seems like it should be cached.
      */
     public function __construct(array $items = [])
     {
