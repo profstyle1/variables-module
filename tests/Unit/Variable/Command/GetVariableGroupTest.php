@@ -2,7 +2,6 @@
 
 class GetVariableGroupTest extends TestCase
 {
-
     public function testHandle()
     {
         $this->assertInstanceOf(

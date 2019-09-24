@@ -2,7 +2,6 @@
 
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 
-
 /**
  * Class GetVariableValue
  *

@@ -49,10 +49,10 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
          */
         $table
             ->setType($this->getModel())
-            ->setId($this->request->route('id'));
+            ->setId(request()->route('id'));
 
         /* @var ControlPanelBuilder $controlPanel */
-        $controlPanel = $this->container->make(ControlPanelBuilder::class);
+        $controlPanel = app(ControlPanelBuilder::class);
 
         $section = $controlPanel->getControlPanelActiveSection();
 
@@ -82,11 +82,10 @@ class VersionsController extends \Anomaly\Streams\Platform\Http\Controller\Versi
     public function getModel()
     {
         /* @var StreamInterface $stream */
-        if ($stream = $this->streams->find($this->request->get('group'))) {
+        if ($stream = $this->streams->find(request('group'))) {
             return $stream->getEntryModelName();
         }
 
         return parent::getModel();
     }
-
 }

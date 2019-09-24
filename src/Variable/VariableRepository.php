@@ -4,7 +4,6 @@ use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryRepository;
 use Anomaly\Streams\Platform\Stream\Contract\StreamRepositoryInterface;
-use Anomaly\Streams\Platform\Support\Decorator;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 
 /**
@@ -27,7 +26,7 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
     /**
      * Create a new VariableRepository instance.
      *
-     * @param VariableCollection        $variables
+     * @param VariableCollection $variables
      * @param StreamRepositoryInterface $streams
      */
     public function __construct(VariableCollection $variables, StreamRepositoryInterface $streams)
@@ -52,6 +51,17 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
     }
 
     /**
+     * Get a variable group.
+     *
+     * @param $group
+     * @return EntryInterface|null
+     */
+    public function group($group)
+    {
+        return $this->variables->get($group);
+    }
+
+    /**
      * Get a variable presenter.
      *
      * @param $group
@@ -64,17 +74,6 @@ class VariableRepository extends EntryRepository implements VariableRepositoryIn
             return null;
         }
 
-        return (new Decorator())->decorate($group)->{$field};
-    }
-
-    /**
-     * Get a variable group.
-     *
-     * @param $group
-     * @return EntryInterface|null
-     */
-    public function group($group)
-    {
-        return $this->variables->get($group);
+        return decorate($group)->{$field};
     }
 }

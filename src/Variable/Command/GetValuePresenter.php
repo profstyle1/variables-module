@@ -1,9 +1,8 @@
 <?php namespace Anomaly\VariablesModule\Variable\Command;
 
-use Anomaly\Streams\Platform\Support\Decorator;
+
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 use Anomaly\VariablesModule\Variable\VariablePresenter;
-
 
 /**
  * Class GetValuePresenter
@@ -53,6 +52,6 @@ class GetValuePresenter
             return null;
         }
 
-        return (new Decorator())->decorate($group)->{$this->field};
+        return decorate($group)->{$this->field};
     }
 }

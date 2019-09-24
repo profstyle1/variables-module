@@ -3,7 +3,6 @@
 use Anomaly\Streams\Platform\Entry\EntryModel;
 use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 
-
 /**
  * Class GetVariableGroup
  *

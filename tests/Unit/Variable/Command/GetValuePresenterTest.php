@@ -2,7 +2,6 @@
 
 class GetValuePresenterTest extends TestCase
 {
-
     public function testHandle()
     {
         $this->assertInstanceOf(

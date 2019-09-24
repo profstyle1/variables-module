@@ -7,7 +7,6 @@ use Anomaly\VariablesModule\Variable\Contract\VariableRepositoryInterface;
 
 class VariableRepositoryTest extends \TestCase
 {
-
     public function testGet()
     {
         /* @var VariableRepositoryInterface $variables */

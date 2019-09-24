@@ -2,7 +2,6 @@
 
 class GetVariableValueTest extends TestCase
 {
-
     public function testHandle()
     {
         $this->assertEquals(

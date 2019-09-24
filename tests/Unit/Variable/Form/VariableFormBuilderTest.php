@@ -2,7 +2,6 @@
 
 class VariableFormBuilderTest extends TestCase
 {
-
     public function testOnReady()
     {
         /* @var \Anomaly\VariablesModule\Variable\Form\VariableFormBuilder $builder */
